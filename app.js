@@ -7,6 +7,33 @@ canvas.height = window.innerHeight;
 const playerImage = new Image();
 playerImage.src = "peterpan.png";
 
+const tinkerbellImage = new Image();
+tinkerbellImage.src = "tinkerbell.png";
+
+const wendyImage = new Image();
+wendyImage.src = "wendy.png";
+
+const johnImage = new Image();
+johnImage.src = "john.png";
+
+const michaelImage = new Image();
+michaelImage.src = "michael.png";
+
+const lostBoyImage = new Image();
+lostBoyImage.src = "lostboy.png";
+
+const lostGirlImage = new Image();
+lostGirlImage.src = "lostgirl.png";
+
+const tigerLilyImage = new Image();
+tigerLilyImage.src = "tigerlily.png";
+
+const pirateImage = new Image();
+pirateImage.src = "pirate.png";
+
+const captainHookImage = new Image();
+captainHookImage.src = "captainhook.png";
+
 const player = {
   x:100,
   y:300,
@@ -45,15 +72,15 @@ function update(){
     player.y += player.speed;
   }
 
-  cameraX = player.x - 300;
-
   if(player.y < 50){
     player.y = 50;
   }
 
-  if(player.y > canvas.height-160){
-    player.y = canvas.height-160;
+  if(player.y > canvas.height-180){
+    player.y = canvas.height-180;
   }
+
+  cameraX = player.x - 300;
 }
 
 function drawSky(){
@@ -61,15 +88,15 @@ function drawSky(){
   ctx.fillStyle = "#001d3d";
   ctx.fillRect(0,0,canvas.width,canvas.height);
 
-  for(let i=0;i<150;i++){
+  for(let i=0;i<200;i++){
 
     ctx.fillStyle = "white";
 
     ctx.beginPath();
 
     ctx.arc(
-      (i*120-cameraX*0.2)%8000,
-      (i*53)%700,
+      (i*100-cameraX*0.2)%10000,
+      (i*37)%700,
       2,
       0,
       Math.PI*2
@@ -111,17 +138,11 @@ function drawLondon(){
     290
   );
 
-  ctx.fillStyle = "yellow";
+  ctx.drawImage(wendyImage,930-cameraX,390,90,170);
 
-  for(let i=0;i<8;i++){
+  ctx.drawImage(johnImage,1020-cameraX,420,90,140);
 
-    ctx.fillRect(
-      930-cameraX+(i%2)*90,
-      370+Math.floor(i/2)*45,
-      30,
-      30
-    );
-  }
+  ctx.drawImage(michaelImage,880-cameraX,430,80,120);
 }
 
 function drawOcean(){
@@ -134,18 +155,6 @@ function drawOcean(){
     1200,
     250
   );
-
-  ctx.fillStyle = "white";
-
-  for(let i=0;i<20;i++){
-
-    ctx.fillRect(
-      1750+i*60-cameraX,
-      530+(i%2)*10,
-      40,
-      4
-    );
-  }
 }
 
 function drawNeverland(){
@@ -184,7 +193,7 @@ function drawNeverland(){
   }
 
   ctx.fillStyle = "white";
-  ctx.font = "38px Arial";
+  ctx.font = "40px Arial";
 
   ctx.fillText(
     "Neverland",
@@ -195,17 +204,37 @@ function drawNeverland(){
 
 function drawLostKids(){
 
-  ctx.fillStyle = "orange";
+  ctx.drawImage(
+    lostBoyImage,
+    3600-cameraX,
+    430,
+    80,
+    120
+  );
 
-  for(let i=0;i<7;i++){
+  ctx.drawImage(
+    lostBoyImage,
+    3720-cameraX,
+    430,
+    80,
+    120
+  );
 
-    ctx.fillRect(
-      3600+i*90-cameraX,
-      470,
-      55,
-      90
-    );
-  }
+  ctx.drawImage(
+    lostGirlImage,
+    3840-cameraX,
+    430,
+    80,
+    120
+  );
+
+  ctx.drawImage(
+    lostGirlImage,
+    3960-cameraX,
+    430,
+    80,
+    120
+  );
 
   ctx.fillStyle = "white";
   ctx.font = "28px Arial";
@@ -213,7 +242,7 @@ function drawLostKids(){
   ctx.fillText(
     "Lost Kids",
     3720-cameraX,
-    430
+    390
   );
 }
 
@@ -233,7 +262,6 @@ function drawIndianVillage(){
   }
 
   ctx.fillStyle = "white";
-  ctx.font = "28px Arial";
 
   ctx.fillText(
     "Indian Village",
@@ -241,21 +269,12 @@ function drawIndianVillage(){
     300
   );
 
-  ctx.fillStyle = "hotpink";
-
-  ctx.fillRect(
+  ctx.drawImage(
+    tigerLilyImage,
     5200-cameraX,
-    430,
-    70,
-    120
-  );
-
-  ctx.fillStyle = "white";
-
-  ctx.fillText(
-    "Tiger Lily",
-    5140-cameraX,
-    400
+    410,
+    100,
+    140
   );
 }
 
@@ -298,33 +317,36 @@ function drawPirateShip(){
     260
   );
 
-  ctx.fillStyle = "purple";
-
-  for(let i=0;i<4;i++){
-
-    ctx.fillRect(
-      6620+i*120-cameraX,
-      440,
-      60,
-      100
-    );
-  }
-
-  ctx.fillStyle = "red";
-
-  ctx.fillRect(
-    7100-cameraX,
-    400,
+  ctx.drawImage(
+    pirateImage,
+    6620-cameraX,
+    430,
     90,
-    140
+    120
   );
 
-  ctx.fillStyle = "white";
+  ctx.drawImage(
+    pirateImage,
+    6760-cameraX,
+    430,
+    90,
+    120
+  );
 
-  ctx.fillText(
-    "Captain Hook",
-    7000-cameraX,
-    370
+  ctx.drawImage(
+    pirateImage,
+    6900-cameraX,
+    430,
+    90,
+    120
+  );
+
+  ctx.drawImage(
+    captainHookImage,
+    7100-cameraX,
+    390,
+    130,
+    160
   );
 }
 
@@ -338,13 +360,12 @@ function drawPlayer(){
     player.height
   );
 
-  ctx.fillStyle = "white";
-  ctx.font = "28px Arial";
-
-  ctx.fillText(
-    "Peter Pan",
-    20,
-    40
+  ctx.drawImage(
+    tinkerbellImage,
+    player.x-cameraX-45,
+    player.y-30,
+    50,
+    50
   );
 }
 
