@@ -2,9 +2,22 @@ body{
   margin:0;
   overflow:hidden;
   background:black;
+  font-family:Arial;
+}
+
+#ui{
+  position:absolute;
+  width:100%;
+  text-align:center;
+  color:white;
+  z-index:5;
+}
+
+h1{
+  color:#ffe066;
 }
 
 canvas{
   display:block;
-  background:linear-gradient(#001d3d,#003566,#0a9396);
+  background:#001d3d;
 }
